@@ -162,10 +162,6 @@ svg.i { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: rou
   transition: transform .32s cubic-bezier(.2,.8,.2,1), visibility 0s linear .32s;
 }
 .sidebar.open { transform: none; visibility: visible; box-shadow: var(--shadow); transition: transform .32s cubic-bezier(.2,.8,.2,1); }
-.sidebar::before {
-  content: ""; position: absolute; left: 50%; top: 250px; width: 250px; height: 250px; margin-left: -125px;
-  border-radius: 50%; border: 1px solid var(--line); pointer-events: none;
-}
 .sidebar > :not(.side-close) { position: relative; z-index: 1; }
 .side-backdrop { position: fixed; inset: 0; z-index: 45; background: rgba(8, 12, 22, 0.5); animation: fadeUp .2s ease both; }
 .drawer-open, .drawer-open body { overflow: hidden; }
