@@ -1,17 +1,18 @@
 # Tiffanie Gutierrez Portfolio
 
-Personal portfolio website of Tiffanie Kyle R. Gutierrez, BS Information Technology student majoring in Data and Business Analytics at Bulacan State University.
+Personal portfolio of Tiffanie Kyle R. Gutierrez, a BS Information Technology student majoring in Data and Business Analytics at Bulacan State University.
 
-Live site: add your Vercel link here
+## Run locally
 
-## What's inside
+1. Install Node.js.
+2. Run `npm install`.
+3. Run `npm run dev` and open the local URL printed by Vite.
 
-- `index.html`: the whole website (HTML, CSS, and JavaScript in one file)
-- `photo.jpg`: profile photo
-- the other `.jpg` files: certificate images
+Run `npm run build` to create the production site in `dist/`.
 
-## Updating the site
+## Project files
 
-1. Change the files in this folder.
-2. In GitHub Desktop, type a short summary and click **Commit to main**.
-3. Click **Push origin**. Vercel updates the live site in about a minute.
+- `src/App.jsx`: React portfolio, content, and interactions
+- `src/styles.css`: responsive styles and themes
+- `public/`: profile photo and certificate images
+- `index.html`: Vite entry page and metadata
