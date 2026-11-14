@@ -13,6 +13,6 @@ Run `npm run build` to create the production site in `dist/`.
 ## Project files
 
 - `src/App.jsx`: React portfolio, content, and interactions
-- `src/styles.css`: responsive styles and themes
+- `src/styles.css`: responsive scrapbook-style design
 - `public/`: profile photo and certificate images
 - `index.html`: Vite entry page and metadata
