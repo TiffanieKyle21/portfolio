@@ -439,7 +439,7 @@ export default function App() {
 
       <header className="topbar">
         <div className="topbar-in">
-          <a className="logo" href="#home" aria-label="Back to top">TG</a>
+          <a className="logo" href="#home" aria-label="Back to top"><img src="/avatar.png" alt="" width="256" height="256" /></a>
           <nav className="nav" aria-label="Sections">
             {NAV.map(([id, label]) => (
               <a key={id} href={`#${id}`} aria-current={activeSection === id ? "true" : undefined}>
