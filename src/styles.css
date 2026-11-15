@@ -317,6 +317,7 @@ h1, h2, h3 { text-wrap: balance; }
 .folder { display: flex; flex-direction: column; min-width: 0; --tone: var(--cream); --on: var(--ink); --on-muted: #4C463E; }
 .folder-ink { --tone: var(--ink); --on: #F4F2EC; --on-muted: #BDB6AA; }
 .folder-yellow { --tone: var(--yellow); --on-muted: #40390F; }
+.folder-mint { --tone: var(--mint); --on-muted: #2F4A3D; }
 .folder-tab {
   align-self: flex-start; display: flex; align-items: center; gap: 8px;
   background: var(--tone); color: var(--on);
@@ -333,7 +334,8 @@ h1, h2, h3 { text-wrap: balance; }
   background: var(--card); border: 1.5px solid var(--ink);
 }
 .folder-ink .folder-art { border-color: #F4F2EC; }
-.folder-art svg { display: block; width: 100%; height: auto; }
+.folder-art svg, .folder-art img { display: block; width: 100%; height: auto; }
+.dialog-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
 .folder-type { color: var(--on-muted); }
 .folder h3 { font-weight: 600; font-size: 1.28rem; line-height: 1.22; letter-spacing: -0.01em; }
 .folder p { color: var(--on-muted); font-size: 15px; line-height: 1.5; }

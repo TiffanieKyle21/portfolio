@@ -34,7 +34,7 @@ const SOCIALS = [
 
 const STATS = [
   ["4", "Work roles"],
-  ["3", "Projects"],
+  ["4", "Projects"],
   ["9", "Certificates"],
 ];
 
@@ -102,10 +102,9 @@ const PROJECTS = [
     title: "Descriptive Analysis and Data Visualization for Coffee Motto Sales",
     blurb: "Cleaned Coffee Motto's raw sales data and built a dashboard of top products, category sales, and revenue trends.",
     tags: ["Excel", "OpenRefine", "Dashboard"],
-    link: {
-      href: "https://drive.google.com/open?id=1ADKWQbGcdUSvbKHm04IhX8j4J4cqRxvNA4P8w2NvLcs",
-      label: "Open spreadsheet",
-    },
+    links: [
+      { href: "https://drive.google.com/open?id=1ADKWQbGcdUSvbKHm04IhX8j4J4cqRxvNA4P8w2NvLcs", label: "Open spreadsheet" },
+    ],
     story: [
       "Turned Coffee Motto's raw sales transactions into business insights through data preprocessing, descriptive analysis, and an interactive dashboard covering sales performance, product and category trends, customer purchasing patterns, and revenue over time.",
       "I cleaned and prepared the dataset in Excel and OpenRefine: date transformation, data splitting, standardization, clustering, fixing product and category entries, and handling missing values. The dashboard shows top-selling products, category sales, weekly and monthly revenue patterns, and yearly revenue.",
@@ -124,6 +123,27 @@ const PROJECTS = [
     tags: ["PHP", "JavaScript", "CSS", "MySQL"],
     story: ["A system developed for the Kasagana Multipurpose Cooperative."],
     builtWith: ["PHP", "JavaScript", "CSS", "MySQL"],
+  },
+  {
+    key: "2fr",
+    cats: ["systems"],
+    tone: "mint",
+    image: "/project-2fr.jpg",
+    imageAlt: "Home page of the 2FR Ceramic website with a red sports car in the studio",
+    type: "Business website · Live",
+    title: "2FR Ceramic Website",
+    blurb: "A website for 2FR Ceramic, a paint protection and coating studio, with its services, photo gallery, two branches, and inquiry links for cars and motorcycles.",
+    tags: ["React", "Vite", "JavaScript", "CSS"],
+    links: [
+      { href: "https://2frceramic.vercel.app", label: "Visit site" },
+      { href: "https://github.com/TiffanieKyle21/2FR", label: "View code" },
+    ],
+    story: [
+      "A single-page website for 2FR Ceramic, a studio that does paint protection film, graphene coating, nano ceramic tint, detailing and repaint for cars and motorcycles.",
+      "It presents the five services with the studio's own photos, a gallery that switches between cars and motorcycles, both branches with Google Maps and Waze directions, and separate inquiry buttons that send car owners and motorcycle owners to the right Facebook page. The layout adapts from desktop down to phones.",
+    ],
+    builtWith: ["React", "Vite", "JavaScript", "CSS"],
+    focus: ["Web development", "Responsive design", "Business website", "Deployment on Vercel"],
   },
 ];
 
@@ -579,7 +599,11 @@ export default function App() {
                 <article key={project.key} className={`folder folder-${project.tone}`}>
                   <div className="folder-tab mono"><i aria-hidden="true" />Project {number}</div>
                   <div className="folder-body">
-                    <div className="folder-art"><Art /></div>
+                    <div className="folder-art">
+                      {project.image
+                        ? <img src={project.image} alt={project.imageAlt} width="960" height="450" loading="lazy" />
+                        : <Art />}
+                    </div>
                     <span className="mono folder-type">{project.type}</span>
                     <h3>{project.title}</h3>
                     <p>{project.blurb}</p>
@@ -592,11 +616,11 @@ export default function App() {
                       <button type="button" className="text-link" onClick={() => setProjectDetail(project)}>
                         View project ↗
                       </button>
-                      {project.link && (
-                        <a className="text-link" href={project.link.href} target="_blank" rel="noopener">
-                          {project.link.label} ↗
+                      {(project.links || []).map((link) => (
+                        <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener">
+                          {link.label} ↗
                         </a>
-                      )}
+                      ))}
                     </div>
                   </div>
                 </article>
@@ -785,11 +809,13 @@ export default function App() {
                   )}
                 </dl>
               )}
-              {projectDetail.link && (
-                <p>
-                  <a className="text-link" href={projectDetail.link.href} target="_blank" rel="noopener">
-                    Open the dashboard spreadsheet ↗
-                  </a>
+              {projectDetail.links && (
+                <p className="dialog-links">
+                  {projectDetail.links.map((link) => (
+                    <a key={link.href} className="text-link" href={link.href} target="_blank" rel="noopener">
+                      {link.label} ↗
+                    </a>
+                  ))}
                 </p>
               )}
             </div>
