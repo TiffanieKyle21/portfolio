@@ -100,9 +100,7 @@ const PROJECTS = [
     key: "coffee",
     cats: ["analytics"],
     tone: "ink",
-    art: "bars",
-    image: "/project-coffee-motto.jpg",
-    imageAlt: "Coffee Motto sales dashboard with transactions, quantity sold, total revenue and sales charts",
+    art: "coffee",
     type: "Business analytics · Dashboard",
     title: "Descriptive Analysis and Data Visualization for Coffee Motto Sales",
     blurb: "Cleaned Coffee Motto's raw sales data and built a dashboard of top products, category sales, and revenue trends.",
@@ -133,8 +131,7 @@ const PROJECTS = [
     key: "2fr",
     cats: ["systems"],
     tone: "mint",
-    image: "/project-2fr.jpg",
-    imageAlt: "Home page of the 2FR Ceramic website with a red sports car in the studio",
+    art: "website",
     type: "Business website · Live",
     title: "2FR Ceramic Website",
     blurb: "A website for 2FR Ceramic, a paint protection and coating studio, with its services, photo gallery, two branches, and inquiry links for cars and motorcycles.",
@@ -147,6 +144,9 @@ const PROJECTS = [
       "A single-page website for 2FR Ceramic, a studio that does paint protection film, graphene coating, nano ceramic tint, detailing and repaint for cars and motorcycles.",
       "It presents the five services with the studio's own photos, a gallery that switches between cars and motorcycles, both branches with Google Maps and Waze directions, and separate inquiry buttons that send car owners and motorcycle owners to the right Facebook page. The layout adapts from desktop down to phones.",
     ],
+    shots: [
+      { src: "/project-2fr.jpg", alt: "Home page of the 2FR Ceramic website with a red sports car in the studio", caption: "Home page of the live website" },
+    ],
     builtWith: ["React", "Vite", "JavaScript", "CSS"],
     focus: ["Web development", "Responsive design", "Business website", "Deployment on Vercel"],
   },
@@ -154,8 +154,7 @@ const PROJECTS = [
     key: "auto-costing",
     cats: ["analytics", "systems"],
     tone: "ink",
-    image: "/project-auto-costing.jpg",
-    imageAlt: "Daily summary report of the auto costing system, showing units, sales, supplies costing and profit for each day",
+    art: "costing",
     type: "Business system · Google Sheets",
     title: "Auto Costing and Sales Report System",
     blurb: "A spreadsheet system for a car and motorcycle detailing shop. Each job is entered once, and the supplies cost, profit, balances and sales reports fill in by themselves.",
@@ -177,8 +176,7 @@ const PROJECTS = [
     key: "netflix",
     cats: ["analytics"],
     tone: "cream",
-    image: "/project-netflix.jpg",
-    imageAlt: "Home page of the Netflix Power BI report with totals for movies and TV shows, movie length, seasons, show type and rating charts",
+    art: "netflix",
     type: "Business intelligence · Power BI",
     title: "Netflix Content Analysis Report",
     blurb: "An interactive Power BI report on 8,797 Netflix movies and TV shows: genres, ratings, runtimes, seasons, monthly additions and countries.",
@@ -379,7 +377,137 @@ function TableArt() {
   );
 }
 
-const ART = { forecast: ForecastArt, bars: BarsArt, table: TableArt };
+function CoffeeArt() {
+  // bar heights follow the dashboard's quantity sold per category (Iced first)
+  const bars = [52, 17, 15, 14, 12, 9, 7, 7];
+  return (
+    <svg viewBox="0 0 320 150" role="img" aria-label="Coffee shop sales dashboard with a coffee cup, summary tiles and a bar chart of category sales">
+      <rect className="a-window" x="40" y="14" width="240" height="122" />
+      <rect className="a-window-bar" x="40" y="14" width="240" height="20" />
+      <circle className="a-window-dot" cx="53" cy="24" r="3" />
+      <circle className="a-window-dot" cx="64" cy="24" r="3" />
+      <path className="a-steam" d="M70 55 c-5 -3 5 -6 0 -9 c-5 -3 5 -6 0 -9 M80 55 c-5 -3 5 -6 0 -9 c-5 -3 5 -6 0 -9 M90 55 c-5 -3 5 -6 0 -9 c-5 -3 5 -6 0 -9" />
+      <path className="a-f-ink" d="M60 60 H96 V80 Q96 94 84 94 H72 Q60 94 60 80 Z" />
+      <path className="a-handle" d="M96 66 h5 a7 7 0 0 1 0 14 h-5" />
+      <rect className="a-f-sand" x="54" y="98" width="48" height="5" rx="2.5" />
+      <text className="a-text" x="78" y="120" textAnchor="middle">SALES</text>
+      {[118, 170, 222].map((x) => (
+        <g key={x}>
+          <rect className="a-tile" x={x} y="42" width="46" height="18" />
+          <rect className="a-f-ink" x={x + 8} y="47" width="22" height="4" />
+          <rect className="a-cell" x={x + 8} y="54" width="30" height="2.5" />
+        </g>
+      ))}
+      {bars.map((h, i) => (
+        <rect key={i} className={i === 0 ? "a-bar a-bar-top" : "a-bar"} x={122 + i * 18} y={126 - h} width="12" height={h} />
+      ))}
+      <path className="a-axis" d="M116 126 H272" />
+      <text className="a-text a-text-hot" x="142" y="80">TOP SELLER</text>
+    </svg>
+  );
+}
+
+function WebsiteArt() {
+  return (
+    <svg viewBox="0 0 320 150" role="img" aria-label="Business website in a browser window with a hero banner, a car and a photo gallery">
+      <rect className="a-window" x="40" y="14" width="240" height="122" />
+      <rect className="a-window-bar" x="40" y="14" width="240" height="20" />
+      <circle className="a-window-dot" cx="53" cy="24" r="3" />
+      <circle className="a-window-dot" cx="64" cy="24" r="3" />
+      <rect className="a-f-paper" x="96" y="19" width="128" height="10" rx="5" />
+      <rect className="a-f-red" x="50" y="39" width="24" height="6" />
+      {[206, 226, 246].map((x) => <rect key={x} className="a-cell" x={x} y="40" width="15" height="4" />)}
+      <rect className="a-f-ink" x="50" y="50" width="220" height="52" />
+      <rect className="a-f-paper" x="60" y="60" width="60" height="6" />
+      <rect className="a-f-paper" x="60" y="70" width="44" height="6" />
+      <rect className="a-f-yellow" x="60" y="84" width="30" height="9" />
+      <path className="a-f-red" d="M150 91 L154 82 Q160 76 176 74 L192 66 Q206 61 222 64 L240 72 Q256 74 260 80 L262 91 Z" />
+      <path className="a-f-dim" d="M196 68 Q207 64 220 66 L232 73 L194 74 Z" />
+      <circle className="a-wheel" cx="174" cy="92" r="6.5" />
+      <circle className="a-wheel" cx="242" cy="92" r="6.5" />
+      {[50, 107, 164, 221].map((x, i) => (
+        <rect key={x} className={i % 2 ? "a-f-mint" : "a-f-sand"} x={x} y="108" width="49" height="20" />
+      ))}
+    </svg>
+  );
+}
+
+function CostingArt() {
+  const rows = [69, 80, 91, 102, 113, 124];
+  return (
+    <svg viewBox="0 0 320 150" role="img" aria-label="Spreadsheet with a formula bar, highlighted job rows and a summary panel">
+      <rect className="a-window" x="36" y="14" width="248" height="122" />
+      <rect className="a-window-bar" x="36" y="14" width="248" height="20" />
+      <circle className="a-window-dot" cx="49" cy="24" r="3" />
+      <circle className="a-window-dot" cx="60" cy="24" r="3" />
+      <text className="a-fx" x="46" y="46">fx</text>
+      <rect className="a-cell" x="64" y="40" width="124" height="5" />
+      <path className="a-rule" d="M36 51 H284" />
+      <rect className="a-f-red" x="44" y="57" width="156" height="9" />
+      {rows.map((y, i) => (
+        <g key={y}>
+          {i === 2 && <rect className="a-f-sand" x="44" y={y - 3} width="156" height="10" />}
+          {i === 4 && <rect className="a-f-blush" x="44" y={y - 3} width="156" height="10" />}
+          {i !== 4 && (
+            <>
+              <rect className="a-cell" x="50" y={y} width="24" height="4" />
+              <rect className="a-cell" x="82" y={y} width="42" height="4" />
+              <rect className="a-cell" x="132" y={y} width="28" height="4" />
+              <rect className="a-cell" x="168" y={y} width="26" height="4" />
+            </>
+          )}
+          {i === 4 && <rect className="a-cell" x="50" y={y} width="24" height="4" />}
+        </g>
+      ))}
+      <rect className="a-panel" x="210" y="57" width="64" height="72" />
+      <rect className="a-f-ink" x="210" y="57" width="64" height="10" />
+      <text className="a-text" x="218" y="80">TOTAL</text>
+      <rect className="a-f-ink" x="218" y="86" width="40" height="5" />
+      <rect className="a-cell" x="218" y="97" width="48" height="4" />
+      <rect className="a-cell" x="218" y="106" width="36" height="4" />
+      <rect className="a-chip-hot" x="218" y="115" width="30" height="8" />
+    </svg>
+  );
+}
+
+function NetflixArt() {
+  // donut: movies are about 70% of titles; bars follow the ratings chart (TV-MA first)
+  const ring = 113.1;
+  const bars = [36, 24, 10, 9, 6, 4, 3.5, 3, 2.5, 1.5];
+  return (
+    <svg viewBox="0 0 320 150" role="img" aria-label="Streaming report page with a dark header, summary tiles, a donut chart of movies and TV shows and a bar chart of ratings">
+      <rect className="a-window" x="36" y="14" width="248" height="122" />
+      <rect className="a-window-bar" x="36" y="14" width="248" height="20" />
+      <rect className="a-f-red" x="46" y="20" width="24" height="8" />
+      {[84, 104, 124, 144].map((x) => <rect key={x} className="a-f-dim" x={x} y="23" width="14" height="3" />)}
+      {[19, 23, 27].map((y) => <rect key={y} className="a-f-red" x="262" y={y} width="12" height="2" />)}
+      {[46, 104, 162, 220].map((x) => (
+        <g key={x}>
+          <rect className="a-kpi" x={x} y="40" width="54" height="20" rx="3" />
+          <rect className="a-f-red" x={x + 15} y="45" width="24" height="5" />
+          <rect className="a-cell" x={x + 12} y="53" width="30" height="2.5" />
+        </g>
+      ))}
+      <circle className="a-ring-rest" cx="80" cy="100" r="18" />
+      <circle className="a-ring" cx="80" cy="100" r="18" strokeDasharray={`${ring * 0.697} ${ring}`} transform="rotate(-90 80 100)" />
+      <path className="a-rule" d="M116 66 V130" />
+      {bars.map((h, i) => (
+        <rect key={i} className="a-f-red" x={128 + i * 14} y={126 - h} width="9" height={h} />
+      ))}
+      <path className="a-axis" d="M124 126 H272" />
+    </svg>
+  );
+}
+
+const ART = {
+  forecast: ForecastArt,
+  bars: BarsArt,
+  table: TableArt,
+  coffee: CoffeeArt,
+  website: WebsiteArt,
+  costing: CostingArt,
+  netflix: NetflixArt,
+};
 
 function Arrow({ className }) {
   return (

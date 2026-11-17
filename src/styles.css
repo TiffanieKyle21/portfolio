@@ -373,6 +373,23 @@ h1, h2, h3 { text-wrap: balance; }
 .a-cell { fill: rgba(23, 20, 15, 0.16); }
 .a-chip { fill: var(--mint); }
 .a-chip-hot { fill: var(--yellow); }
+.a-f-ink { fill: var(--ink); }
+.a-f-red { fill: var(--red); }
+.a-f-sand { fill: var(--sand); }
+.a-f-mint { fill: var(--mint); }
+.a-f-yellow { fill: var(--yellow); }
+.a-f-paper { fill: #fff; }
+.a-f-dim { fill: rgba(255, 255, 255, 0.55); }
+.a-f-blush { fill: rgba(224, 53, 122, 0.18); }
+.a-tile { fill: var(--sand); }
+.a-panel { fill: #fff; stroke: var(--ink); stroke-width: 1.5; }
+.a-kpi { fill: #fff; stroke: var(--red); stroke-width: 1.5; }
+.a-steam { fill: none; stroke: var(--muted); stroke-width: 1.5; stroke-linecap: round; }
+.a-handle { fill: none; stroke: var(--ink); stroke-width: 4; }
+.a-wheel { fill: var(--ink); stroke: #fff; stroke-width: 2; }
+.a-fx { font: italic 600 10px var(--font-mono); fill: var(--red); }
+.a-ring { fill: none; stroke: var(--red); stroke-width: 10; }
+.a-ring-rest { fill: none; stroke: #8E1B22; stroke-width: 10; }
 
 /* Skills */
 .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 28px; }
