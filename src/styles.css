@@ -520,6 +520,8 @@ a.contact-value:hover { text-decoration: underline; }
 .facts { display: grid; gap: 12px; margin-top: 4px; }
 .facts div { display: grid; gap: 7px; }
 .dialog-img { display: block; width: 100%; height: auto; max-height: 72vh; object-fit: contain; border: 1px solid rgba(23, 20, 15, 0.15); background: #fff; }
+.dialog-shot { display: grid; gap: 6px; margin: 4px 0 0; }
+.dialog-shot figcaption { color: var(--muted); font-size: 0.78rem; }
 .dialog-foot { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 8px 16px; }
 .dialog-foot .mono { color: var(--muted); }
 

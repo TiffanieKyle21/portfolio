@@ -34,7 +34,7 @@ const SOCIALS = [
 
 const STATS = [
   ["4", "Work roles"],
-  ["4", "Projects"],
+  ["6", "Projects"],
   ["9", "Certificates"],
 ];
 
@@ -75,6 +75,9 @@ const SKILLS = [
   ["Web Development & Programming", 3],
 ];
 
+// Paste the view-only Google Sheets link of the demo here to show an "Open demo" button.
+const AUTO_COSTING_DEMO_URL = "";
+
 const PROJECTS = [
   {
     key: "medicine",
@@ -98,12 +101,14 @@ const PROJECTS = [
     cats: ["analytics"],
     tone: "ink",
     art: "bars",
+    image: "/project-coffee-motto.jpg",
+    imageAlt: "Coffee Motto sales dashboard with transactions, quantity sold, total revenue and sales charts",
     type: "Business analytics · Dashboard",
     title: "Descriptive Analysis and Data Visualization for Coffee Motto Sales",
     blurb: "Cleaned Coffee Motto's raw sales data and built a dashboard of top products, category sales, and revenue trends.",
     tags: ["Excel", "OpenRefine", "Dashboard"],
-    links: [
-      { href: "https://drive.google.com/open?id=1ADKWQbGcdUSvbKHm04IhX8j4J4cqRxvNA4P8w2NvLcs", label: "Open spreadsheet" },
+    shots: [
+      { src: "/coffee-motto-dashboard.jpg", alt: "Coffee Motto sales dashboard: transactions, total quantity sold, total revenue, quantity sold per category, weekly sales, top 10 products, monthly revenue, revenue per year and category revenue share", caption: "Sales dashboard: KPIs, category and product sales, and weekly, monthly and yearly revenue" },
     ],
     story: [
       "Turned Coffee Motto's raw sales transactions into business insights through data preprocessing, descriptive analysis, and an interactive dashboard covering sales performance, product and category trends, customer purchasing patterns, and revenue over time.",
@@ -144,6 +149,53 @@ const PROJECTS = [
     ],
     builtWith: ["React", "Vite", "JavaScript", "CSS"],
     focus: ["Web development", "Responsive design", "Business website", "Deployment on Vercel"],
+  },
+  {
+    key: "auto-costing",
+    cats: ["analytics", "systems"],
+    tone: "ink",
+    image: "/project-auto-costing.jpg",
+    imageAlt: "Daily summary report of the auto costing system, showing units, sales, supplies costing and profit for each day",
+    type: "Business system · Google Sheets",
+    title: "Auto Costing and Sales Report System",
+    blurb: "A spreadsheet system for a car and motorcycle detailing shop. Each job is entered once, and the supplies cost, profit, balances and sales reports fill in by themselves.",
+    tags: ["Google Sheets", "Excel", "Formulas", "Automation"],
+    ...(AUTO_COSTING_DEMO_URL && { links: [{ href: AUTO_COSTING_DEMO_URL, label: "Open demo" }] }),
+    sub: "Demo with made-up data",
+    story: [
+      "A spreadsheet system for a car and motorcycle detailing shop. Each job is entered once on the Records tab (date, vehicle, unit, service, amount, initial payment and release), and everything else is calculated from there.",
+      "Each job's supplies cost is matched from a costing table by service and vehicle type, giving the gross and net profit per job. Shop expenses are logged on their own tab, and the reports total sales, costs, profit, balances still to collect and cash on hand by day, by 5-day and 10-day periods, and by the 11th-to-10th cut-off, with a month picker on each report.",
+      "Dropdowns keep entries consistent, and color rules mark units still in the shop, days with no jobs, and jobs that need a second look. It started in Excel and was moved to Google Sheets so the team can use it online.",
+    ],
+    shots: [
+      { src: "/auto-costing-5days.jpg", alt: "5-days report with sales, supplies costing, expenses and net profit for each 5-day period of October", caption: "5-days report: each period of the month, totaled automatically" },
+      { src: "/auto-costing-records.jpg", alt: "Records tab with job entries, balances and a summary of total sales, balance and cash on hand", caption: "Records tab: where each job is entered, with a running summary" },
+    ],
+    builtWith: ["Microsoft Excel", "Google Sheets"],
+    focus: ["Business analytics", "Process automation", "Cost and profit tracking", "Sales reporting", "Data validation"],
+  },  {
+    key: "netflix",
+    cats: ["analytics"],
+    tone: "cream",
+    image: "/project-netflix.jpg",
+    imageAlt: "Home page of the Netflix Power BI report with totals for movies and TV shows, movie length, seasons, show type and rating charts",
+    type: "Business intelligence · Power BI",
+    title: "Netflix Content Analysis Report",
+    blurb: "An interactive Power BI report on 8,797 Netflix movies and TV shows: genres, ratings, runtimes, seasons, monthly additions and countries.",
+    tags: ["Power BI", "Power Query", "Star schema"],
+    story: [
+      "An interactive Power BI report on the Netflix catalog: 8,797 titles (6,131 movies and 2,666 TV shows) added from 2008 to 2021. It has five pages (Home, Movies, TV Shows, Titles and Media Details) with a page navigator, a filter panel for year added and rating, and a button that clears all filters.",
+      "I cleaned the data in Power Query, splitting each title's duration into a number and a unit so movie runtimes in minutes and TV shows' number of seasons can be analyzed separately, and pulling out the year and month each title was added. I then modeled it as a star schema, with dimension tables for date, genre, country, cast and director, and bridge tables for titles with more than one genre, country, cast member or director.",
+      "The pages show the movie and TV show split, the most common genres, ratings, movie length in minutes, TV shows by number of seasons, titles added per month, genres by country on a map, and lists of titles with their cast, director, genre and country of origin.",
+    ],
+    shots: [
+      { src: "/netflix-home.jpg", alt: "Home page: total movies and TV shows, average movie length and series length, movies by minutes, TV shows by seasons, show type split and media by rating", caption: "Home: totals, movie length, seasons, show type and ratings" },
+      { src: "/netflix-movies.jpg", alt: "Movies page: treemap of the most frequent movie genres, movies added per month, and a map of genres by country", caption: "Movies: top genres, monthly additions and a map by country" },
+      { src: "/netflix-tv-shows.jpg", alt: "TV Shows page: most frequent TV show genres, TV shows added per month, and a map of genres by country", caption: "TV Shows: genres, monthly additions and a map by country" },
+      { src: "/netflix-media-details.jpg", alt: "Media Details page showing one title with its country, genres, cast and director", caption: "Media Details: one title's country, genres, cast and director" },
+    ],
+    builtWith: ["Power BI", "Power Query"],
+    focus: ["Business intelligence", "Data cleaning", "Data modeling", "Star schema", "Interactive reporting"],
   },
 ];
 
@@ -780,7 +832,7 @@ export default function App() {
       </main>
 
       <dialog
-        className="dialog"
+        className={`dialog${projectDetail?.shots ? " dialog-wide" : ""}`}
         ref={sheetRef}
         aria-labelledby="sheet-title"
         onClose={() => setProjectDetail(null)}
@@ -795,6 +847,14 @@ export default function App() {
             <div className="dialog-content">
               {projectDetail.sub && <p className="hand dialog-sub">{projectDetail.sub}</p>}
               {projectDetail.story.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              {projectDetail.shots && projectDetail.shots.map((shot) => (
+                <figure key={shot.src} className="dialog-shot">
+                  <a href={shot.src} target="_blank" rel="noopener" aria-label={`Open full size: ${shot.caption}`}>
+                    <img className="dialog-img" src={shot.src} alt={shot.alt} loading="lazy" />
+                  </a>
+                  <figcaption className="mono">{shot.caption}</figcaption>
+                </figure>
+              ))}
               {projectDetail.builtWith && (
                 <dl className="facts">
                   <div>
