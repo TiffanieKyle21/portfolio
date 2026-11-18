@@ -64,6 +64,10 @@ const TOOL_GROUPS = [
     label: "Programming & web",
     tools: [["Python"], ["Java"], ["JavaScript"], ["HTML"], ["CSS"]],
   },
+  {
+    label: "Networking",
+    tools: [["Cisco Packet Tracer"], ["PuTTY"], ["VirtualBox"]],
+  },
 ];
 
 const ALL_TOOLS = TOOL_GROUPS.flatMap((group) => group.tools.map(([name]) => name));
@@ -72,7 +76,8 @@ const SKILLS = [
   ["Business Intelligence", 5],
   ["Data Analytics & Statistics", 4],
   ["Database Management & CRM", 4],
-  ["Web Development & Programming", 3],
+  ["Web Development & Programming", 4],
+  ["Networking & System Build-Up", 3],
 ];
 
 // Paste the view-only Google Sheets link of the demo here to show an "Open demo" button.
@@ -92,6 +97,12 @@ const PROJECTS = [
     story: [
       "A web-based system that helps the Bulacan State University Clinic plan its medicine inventory. It uses historical dispensing records to find consumption patterns and forecast future demand, so clinic staff can make better purchasing and restocking decisions.",
       "The system covers data preprocessing, exploratory data analysis, medicine classification, demand forecasting, and an interactive dashboard for viewing medicine trends and forecasts.",
+    ],
+    shots: [
+      { src: "/medicine-login.jpg", alt: "Login page of the BulSU Health Services Unit system, with the campus building and a sign-in form for clinic staff", caption: "Login: the sign-in page for clinic staff" },
+      { src: "/medicine-dashboard.jpg", alt: "Dashboard of historical medicine demand from January 2023 to April 2026: units given, patients treated, monthly demand, consumption by generic name and by diagnosis, top five categories and top departments", caption: "Dashboard: monthly demand from 2023 to 2026, by medicine, diagnosis, category and department" },
+      { src: "/medicine-forecast.jpg", alt: "Demand forecast for Analgesic medicines in 2026: forecasted units, average monthly demand, historical and forecasted demand with a 95% confidence interval, and a stock planning note", caption: "Demand Forecast: forecast by category with a 95% confidence interval and a stock planning tip" },
+      { src: "/medicine-categories.jpg", alt: "Medicine Categories page with a search bar and cards for Analgesic, Antacid, Anti-Asthma, Anti-Colds, Anti-Fibrinolytics, Anti-Histamine and more", caption: "Medicine: searchable categories, each opening its specific medicines" },
     ],
     builtWith: ["PHP", "MySQL", "JavaScript", "HTML", "CSS"],
     focus: ["Predictive analytics", "Data analysis", "Demand forecasting", "Inventory planning", "Web development"],
@@ -820,7 +831,7 @@ export default function App() {
                 <h3>Technical skills</h3>
                 <span className="mono">Rating · 0–5</span>
               </div>
-              <div className="bars" role="img" aria-label="Self-rated technical skills out of 5: Business Intelligence 5, Data Analytics and Statistics 4, Database Management and CRM 4, Web Development and Programming 3.">
+              <div className="bars" role="img" aria-label="Self-rated technical skills out of 5: Business Intelligence 5, Data Analytics and Statistics 4, Database Management and CRM 4, Web Development and Programming 4, Networking and System Build-Up 3.">
                 {SKILLS.map(([label, value]) => (
                   <div className="bar-row" key={label}>
                     <span className="bar-label">{label}</span>
