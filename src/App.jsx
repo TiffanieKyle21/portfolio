@@ -113,14 +113,14 @@ const PROJECTS = [
     tone: "ink",
     art: "coffee",
     type: "Business analytics · Dashboard",
-    title: "Descriptive Analysis and Data Visualization for Coffee Motto Sales",
-    blurb: "Cleaned Coffee Motto's raw sales data and built a dashboard of top products, category sales, and revenue trends.",
+    title: "Descriptive Analysis and Data Visualization for Coffee Shop Sales",
+    blurb: "Cleaned a coffee shop's raw sales data and built a dashboard of top products, category sales, and revenue trends.",
     tags: ["Excel", "OpenRefine", "Dashboard"],
     shots: [
-      { src: "/coffee-motto-dashboard.jpg", alt: "Coffee Motto sales dashboard: transactions, total quantity sold, total revenue, quantity sold per category, weekly sales, top 10 products, monthly revenue, revenue per year and category revenue share", caption: "Sales dashboard: KPIs, category and product sales, and weekly, monthly and yearly revenue" },
+      { src: "/coffee-sales-dashboard.jpg", alt: "Coffee shop sales dashboard: transactions, total quantity sold, total revenue, quantity sold per category, weekly sales, top 10 products, monthly revenue, revenue per year and category revenue share", caption: "Sales dashboard: KPIs, category and product sales, and weekly, monthly and yearly revenue" },
     ],
     story: [
-      "Turned Coffee Motto's raw sales transactions into business insights through data preprocessing, descriptive analysis, and an interactive dashboard covering sales performance, product and category trends, customer purchasing patterns, and revenue over time.",
+      "Turned a coffee shop's raw sales transactions into business insights through data preprocessing, descriptive analysis, and an interactive dashboard covering sales performance, product and category trends, customer purchasing patterns, and revenue over time.",
       "I cleaned and prepared the dataset in Excel and OpenRefine: date transformation, data splitting, standardization, clustering, fixing product and category entries, and handling missing values. The dashboard shows top-selling products, category sales, weekly and monthly revenue patterns, and yearly revenue.",
     ],
     builtWith: ["Microsoft Excel", "OpenRefine"],
